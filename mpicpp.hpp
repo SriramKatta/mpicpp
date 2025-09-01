@@ -358,6 +358,7 @@ class comm {
   static comm self();
   comm dup() const;
   comm split(int color, int key) const;
+  comm split_type(int split_type, int key, MPI_Info info = MPI_INFO_NULL) const;
   comm cart_create(
       int ndims,
       int const* dims,
