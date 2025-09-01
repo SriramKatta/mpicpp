@@ -357,7 +357,7 @@ comm comm::split(int color, int key) const
   return comm(new_implementation, true);
 }
 
-comm comm::split_type(int split_type, int key, MPI_Info info = MPI_INFO_NULL) const
+comm comm::split_type(int split_type, int key, MPI_Info info) const
 {
   MPI_Comm new_implementation;
   handle_error(
@@ -370,11 +370,6 @@ comm comm::split_type(int split_type, int key, MPI_Info info = MPI_INFO_NULL) co
   return comm(new_implementation, true);
 }
 
-        color,
-        key,
-        &new_implementation));
-  return comm(new_implementation, true);
-}
 
 comm comm::cart_create(
     int ndims,
