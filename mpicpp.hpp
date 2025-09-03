@@ -370,7 +370,7 @@ namespace mpicpp
     }
 
     template <typename VT>
-    request ibcast(std::vector<VT> &buffer, int root) const
+    request ibcast(const std::vector<VT> &buffer, int root) const
     {
       MPI_Request request_implementation;
       handle_error(
@@ -385,7 +385,7 @@ namespace mpicpp
     }
 
     template <typename VT>
-    request iscatterv(std::vector<VT> &send_buffer, std::vector<int> &send_counts, std::vector<int> &displacements, std::vector<VT> &receive_buffer, int root) const
+    request iscatterv(const std::vector<VT> &send_buffer, const std::vector<int> &send_counts, const std::vector<int> &displacements, std::vector<VT> &receive_buffer, int root) const
     {
       MPI_Request request_implementation;
       handle_error(
