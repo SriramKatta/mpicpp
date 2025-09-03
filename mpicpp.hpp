@@ -370,21 +370,31 @@ namespace mpicpp
     }
 
     template <typename VT>
-    request ibcast(std::vector<VT> &data, int root) const
+    request ibcast(std::vector<VT> &buffer, int root) const
     {
-      int size = data.size();
-      handle_error(
-          MPI_Bcast(&size, 1, MPI_INT, root, implementation));
-      if (rank() != root)
-      {
-        data.resize(size);
-      }
       MPI_Request request_implementation;
       handle_error(
           MPI_Ibcast(
-              data.data(),
-              data.size(),
+              buffer.data(),
+              buffer.size(),
               predefined_datatype<VT>().get(),
+              root,
+              implementation,
+              &request_implementation));
+      return request(request_implementation);
+    }
+
+    template <typename VT>
+    request iscatterv(std::vector<VT> &send_buffer, std::vector<VT> &send_counts, std::vector<VT> &displacements, std::vector<VT> &receive_buffer, int root) const
+    {
+      MPI_Request request_implementation;
+      handle_error(
+          MPI_Iscatterv(
+              send_buffer.data(),
+              send_counts.data(),
+              displacements.data(),
+              predefined_datatype<VT>().get(),
+              receive_buffer.data(),
               root,
               implementation,
               &request_implementation));
