@@ -370,7 +370,7 @@ namespace mpicpp
     }
 
     template <typename VT>
-    request ibcast(const std::vector<VT> &data, int root) const
+    request ibcast(std::vector<VT> &data, int root) const
     {
       int size = data.size();
       handle_error(
