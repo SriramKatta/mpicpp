@@ -385,7 +385,7 @@ namespace mpicpp
     }
 
     template <typename VT>
-    request iscatterv(std::vector<VT> &send_buffer, std::vector<VT> &send_counts, std::vector<VT> &displacements, std::vector<VT> &receive_buffer, int root) const
+    request iscatterv(std::vector<VT> &send_buffer, std::vector<int> &send_counts, std::vector<int> &displacements, std::vector<VT> &receive_buffer, int root) const
     {
       MPI_Request request_implementation;
       handle_error(
