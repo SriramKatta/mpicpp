@@ -395,6 +395,7 @@ namespace mpicpp
               displacements.data(),
               predefined_datatype<VT>().get(),
               receive_buffer.data(),
+              predefined_datatype<VT>().get(),
               root,
               implementation,
               &request_implementation));
