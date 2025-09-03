@@ -2,6 +2,7 @@
 
 #include <mpi.h>
 
+#include <vector>
 #include <string>
 #include <cstddef>
 #include <exception>
