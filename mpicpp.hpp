@@ -382,8 +382,8 @@ namespace mpicpp
       MPI_Request request_implementation;
       handle_error(
           MPI_Ibcast(
-              const_cast<void *>(data.data()),
-              static_cast<int>(data.size()),
+              data.data(),
+              data.size(),
               predefined_datatype<VT>().get(),
               root,
               implementation,
