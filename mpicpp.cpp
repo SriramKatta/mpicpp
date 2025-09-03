@@ -364,12 +364,14 @@ namespace mpicpp
     return comm(new_implementation, true);
   }
 
-  void comm::barrier() const
+  request comm::ibarrier() const
   {
-    MPI_Comm new_implementation;
+    MPI_Request request_implementation;
     handle_error(
-        MPI_Barrier(
-            implementation));
+        MPI_Ibarrier(
+            implementation,
+            &request_implementation));
+    return request(request_implementation);
   }
 
   comm comm::split(int color, int key) const
