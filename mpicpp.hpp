@@ -424,7 +424,7 @@ namespace mpicpp
       MPI_Request request_implementation;
       handle_error(
           MPI_Igather(
-              send_buffer,
+              &send_buffer,
               1,
               predefined_datatype<VT>().get(),
               receive_buffer.data(),
