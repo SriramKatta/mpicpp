@@ -436,6 +436,19 @@ namespace mpicpp
       return request(request_implementation);
     }
 
+    template <typename VT>
+    void exscan(const VT &sendbuf, std::vector<VT> &recvbuf, op const &op_arg) const
+    {
+      handle_error(
+          MPI_Exscan(
+              &sendbuf,
+              recvbuf.data(),
+              1,
+              predefined_datatype<VT>().get(),
+              op_arg.get(),
+              implementation));
+    }
+
     static comm world();
     static comm self();
     comm dup() const;
