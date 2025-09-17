@@ -428,7 +428,7 @@ namespace mpicpp
               1,
               predefined_datatype<VT>().get(),
               receive_buffer.data(),
-              receive_buffer.size(),
+              1,
               predefined_datatype<VT>().get(),
               root,
               implementation,
