@@ -370,6 +370,21 @@ namespace mpicpp
     }
 
     template <typename VT>
+    request ibcast(VT &buffer, int root) const
+    {
+      MPI_Request request_implementation;
+      handle_error(
+          MPI_Ibcast(
+              &buffer,
+              1,
+              predefined_datatype<VT>().get(),
+              root,
+              implementation,
+              &request_implementation));
+      return request(request_implementation);
+    }
+
+    template <typename VT>
     request ibcast(std::vector<VT> &buffer, int root) const
     {
       MPI_Request request_implementation;
