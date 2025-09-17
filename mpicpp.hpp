@@ -418,6 +418,23 @@ namespace mpicpp
       return request(request_implementation);
     }
 
+    template <typename VT>
+    request igather(VT &send_buffer, std::vector<VT> &receive_buffer, int root) const
+    {
+      MPI_Request request_implementation;
+      handle_error(
+          MPI_Igather(
+              send_buffer,
+              1,
+              predefined_datatype<VT>().get(),
+              receive_buffer.data(),
+              predefined_datatype<VT>().get(),
+              root,
+              implementation,
+              &request_implementation));
+      return request(request_implementation);
+    }
+
     static comm world();
     static comm self();
     comm dup() const;
