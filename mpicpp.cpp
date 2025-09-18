@@ -238,6 +238,11 @@ namespace mpicpp
     return datatype(MPI_DOUBLE, false);
   }
 
+    datatype datatype::predefined_bool()
+  {
+    return datatype(MPI_C_BOOL, false);
+  }
+
   datatype datatype::predefined_packed()
   {
     return datatype(MPI_PACKED, false);

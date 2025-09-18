@@ -136,6 +136,7 @@ namespace mpicpp
     static datatype predefined_long_long_int();
     static datatype predefined_float();
     static datatype predefined_double();
+    static datatype predefined_bool();
     static datatype predefined_packed();
   };
 
@@ -232,6 +233,16 @@ namespace mpicpp
       static datatype value()
       {
         return datatype::predefined_double();
+      }
+    };
+
+    template <>
+    class predefined_datatype_helper<bool>
+    {
+    public:
+      static datatype value()
+      {
+        return datatype::predefined_bool();
       }
     };
 
