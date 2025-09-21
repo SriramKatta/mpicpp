@@ -395,6 +395,24 @@ namespace mpicpp
       return request(request_implementation);
     }
 
+    request ibcast(std::string &buffer, int root) const
+    {
+      int size;
+      if (rank() == root)
+      {
+        size = buffer.size();
+      }
+      ibcast(size, root);
+      if (rank() != root)
+      {
+        buffer.resize(size);
+      }
+      MPI_Request request_implementation;
+      handle_error(MPI_Ibcast(buffer.data(), size, MPI_CHAR, root,
+                              implementation, &request_implementation));
+      return request(request_implementation);
+    }
+
     template <typename VT>
     request ibcast(std::vector<VT> &buffer, int root) const
     {
