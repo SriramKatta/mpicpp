@@ -481,6 +481,25 @@ namespace mpicpp
     }
 
     template <typename VT>
+    request igatherv(std::vector<VT> &send_buffer, std::vector<VT> &receive_buffer, std::vector<int> &recv_counts, std::vector<int> &recv_disp, int root) const
+    {
+      MPI_Request request_implementation;
+      handle_error(
+          MPI_Igatherv(
+              send_buffer.data(),
+              send_buffer.size(),
+              predefined_datatype<VT>().get(),
+              receive_buffer.data(),
+              recv_counts.data(),
+              recv_disp.data(),
+              predefined_datatype<VT>().get(),
+              root,
+              implementation,
+              &request_implementation));
+      return request(request_implementation);
+    }
+
+    template <typename VT>
     void exscan(const VT &sendbuf, std::vector<VT> &recvbuf, op const &op_arg) const
     {
       handle_error(
