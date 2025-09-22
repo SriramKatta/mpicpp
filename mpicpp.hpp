@@ -428,6 +428,21 @@ namespace mpicpp
       return request(request_implementation);
     }
 
+    template <typename VT, size_t N>
+    request ibcast(std::array<VT, N> &buffer, int root) const
+    {
+      MPI_Request request_implementation;
+      handle_error(
+          MPI_Ibcast(
+              buffer.data(),
+              buffer.size(),
+              predefined_datatype<VT>().get(),
+              root,
+              implementation,
+              &request_implementation));
+      return request(request_implementation);
+    }
+
     template <typename VT>
     request iscatterv(std::vector<VT> &send_buffer, std::vector<int> &send_counts, std::vector<int> &displacements, std::vector<VT> &receive_buffer, int root) const
     {
