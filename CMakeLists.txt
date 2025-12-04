@@ -7,6 +7,9 @@ set(MPICPP_SOURCES mpicpp.cpp)
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
+include(cmake/CPM.cmake)
+include(cmake/Gtest.cmake)
+
 find_package(MPI REQUIRED COMPONENTS CXX)
 
 add_library(mpicpp ${MPICPP_SOURCES})
