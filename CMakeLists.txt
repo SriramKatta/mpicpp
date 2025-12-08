@@ -40,6 +40,6 @@ add_subdirectory(lib)
 #   DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/mpicpp)
 # install(
 #   EXPORT mpicpp-targets
-#   NAMESPACE mpicpp::
+#   NAMESPACE mpicxx::
 #   DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/mpicpp)
 

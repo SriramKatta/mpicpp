@@ -4,7 +4,7 @@
 #include <mpi.h>
 #include "status.hpp"
 
-namespace mpicpp
+namespace mpicxx
 {
     class request
     {

@@ -2,7 +2,7 @@
 
 #include "error/exception.hpp"
 
-namespace mpicpp
+namespace mpicxx
 {
     datatype &datatype::operator=(datatype &&other)
     {

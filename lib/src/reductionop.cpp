@@ -1,7 +1,7 @@
 #include "reductionoperation/reductionop.hpp"
 #include "error/exception.hpp"
 
-namespace mpicpp
+namespace mpicxx
 {
     op &op::operator=(op &&other)
     {
@@ -56,4 +56,4 @@ namespace mpicpp
         return op(implementation);
     }
 
-} // namespace mpicpp
+} // namespace mpicxx

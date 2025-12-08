@@ -4,7 +4,7 @@
 
 #include <mpi.h>
 
-namespace mpicpp
+namespace mpicxx
 {
     class [[nodiscard]] environment
     {
@@ -20,7 +20,7 @@ namespace mpicpp
         environment(environment &&) = delete;
         environment &operator=(environment &&) = delete;
     };
-} // namespace mpicpp
+} // namespace mpicxx
 
 
 #endif

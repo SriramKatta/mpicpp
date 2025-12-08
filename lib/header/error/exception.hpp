@@ -6,7 +6,7 @@
 #include <exception>
 
 
-namespace mpicpp
+namespace mpicxx
 {
     class exception : public std::exception
     {

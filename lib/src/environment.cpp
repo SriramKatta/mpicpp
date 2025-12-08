@@ -2,7 +2,7 @@
 
 #include "error/exception.hpp"
 
-namespace mpicpp
+namespace mpicxx
 {
     environment::environment(int *argc, char ***argv)
     {
@@ -23,4 +23,4 @@ namespace mpicpp
             handle_error(MPI_Finalize());
         }
     }
-} // namespace mpicpp
+} // namespace mpicxx

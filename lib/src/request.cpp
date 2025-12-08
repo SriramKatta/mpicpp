@@ -3,13 +3,13 @@
 #include "error/exception.hpp"
 #include "handles/request.hpp"
 
-namespace mpicpp
+namespace mpicxx
 {
     request::request(request const &other)
     {
         if (other.implementation != MPI_REQUEST_NULL)
         {
-            throw std::logic_error("tried to copy construct from a non-null mpicpp::request object");
+            throw std::logic_error("tried to copy construct from a non-null mpicxx::request object");
         }
         implementation = other.implementation;
     }
@@ -18,7 +18,7 @@ namespace mpicpp
     {
         if (other.implementation != MPI_REQUEST_NULL)
         {
-            throw exception("tried to copy assign from a non-null mpicpp::request object");
+            throw exception("tried to copy assign from a non-null mpicxx::request object");
         }
         wait();
         implementation = other.implementation;

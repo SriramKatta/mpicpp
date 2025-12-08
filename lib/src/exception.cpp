@@ -2,7 +2,7 @@
 
 #include "error/exception.hpp"
 
-namespace mpicpp
+namespace mpicxx
 {
     exception::exception(int errorcode)
     {

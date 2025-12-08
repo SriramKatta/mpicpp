@@ -10,6 +10,7 @@ set(SRCS
     src/reductionop.cpp
     src/datatype.cpp
     src/environment.cpp
+    src/comm.cpp
 )
 
 target_sources(${LIB_INTERNAL_NAME} PRIVATE ${SRCS})

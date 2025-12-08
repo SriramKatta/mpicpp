@@ -3,7 +3,7 @@
 
 #include <mpi.h>
 
-namespace mpicpp
+namespace mpicxx
 {
     class status
     {

@@ -4,7 +4,7 @@
 
 #include <mpi.h>
 
-namespace mpicpp
+namespace mpicxx
 {
     class op
   {
@@ -41,7 +41,7 @@ namespace mpicpp
         int commute = 1);
   };
 
-} // namespace mpicpp
+} // namespace mpicxx
 
 
 #endif
