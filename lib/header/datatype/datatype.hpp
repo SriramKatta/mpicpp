@@ -54,15 +54,15 @@ namespace mpicxx
         template <class T>
         class predefined_datatype_helper;
 
-        template <>
-        class predefined_datatype_helper<std::byte>
-        {
-        public:
-            static datatype value()
-            {
-                return datatype::predefined_byte();
-            }
-        };
+        // template <>
+        // class predefined_datatype_helper<std::byte>
+        // {
+        // public:
+        //     static datatype value()
+        //     {
+        //         return datatype::predefined_byte();
+        //     }
+        // };
 
         template <>
         class predefined_datatype_helper<char>

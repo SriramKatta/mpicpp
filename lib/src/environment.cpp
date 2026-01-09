@@ -4,13 +4,22 @@
 
 namespace mpicxx
 {
-    environment::environment(int *argc, char ***argv)
+    environment::environment( int &argc, char **&argv)
     {
         int flag;
         handle_error(MPI_Initialized(&flag));
         if (!flag)
         {
-            handle_error(MPI_Init(argc, argv));
+            handle_error(MPI_Init(&argc, &argv));
+        }
+    }
+    environment::environment()
+    {
+        int flag;
+        handle_error(MPI_Initialized(&flag));
+        if (!flag)
+        {
+            handle_error(MPI_Init(nullptr, nullptr));
         }
     }
 

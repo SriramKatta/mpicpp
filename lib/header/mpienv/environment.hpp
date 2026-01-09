@@ -9,11 +9,8 @@ namespace mpicxx
     class [[nodiscard]] environment
     {
     public:
-        environment(int *argc, char ***argv);
-        environment()
-            : environment(nullptr, nullptr)
-        {
-        }
+        environment(int& argc,char**& argv);
+        environment();
         ~environment();
         environment(environment const &) = delete;
         environment &operator=(environment const &) = delete;
@@ -21,6 +18,5 @@ namespace mpicxx
         environment &operator=(environment &&) = delete;
     };
 } // namespace mpicxx
-
 
 #endif

@@ -4,7 +4,9 @@
 
 #include <mpi.h>
 #include <vector>
+#include <array>
 
+#include "handles/request.hpp"
 #include "reductionoperation/reductionop.hpp"
 
 
@@ -151,7 +153,7 @@ namespace mpicxx
             return request(request_implementation);
         }
 
-        request ibcast(std::string &buffer, int root) const
+        request ibcast(std::string& buffer, int root) const
         {
             int size;
             if (rank() == root)

@@ -1,6 +1,7 @@
 set(LIB_INTERNAL_NAME mpicxx)
 
 add_library(${LIB_INTERNAL_NAME})
+add_library(mpicxx::mpicxx ALIAS ${LIB_INTERNAL_NAME})
 
 target_link_libraries(${LIB_INTERNAL_NAME} PUBLIC MPI::MPI_CXX)
 
