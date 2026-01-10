@@ -11,6 +11,7 @@ namespace mpicxx
     public:
         environment(int& argc,char**& argv);
         environment();
+        finalize();
         ~environment();
         environment(environment const &) = delete;
         environment &operator=(environment const &) = delete;

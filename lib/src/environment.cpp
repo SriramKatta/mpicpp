@@ -4,7 +4,7 @@
 
 namespace mpicxx
 {
-    environment::environment( int &argc, char **&argv)
+    environment::environment(int &argc, char **&argv)
     {
         int flag;
         handle_error(MPI_Initialized(&flag));
@@ -23,7 +23,7 @@ namespace mpicxx
         }
     }
 
-    environment::~environment()
+    environment::finalize()
     {
         int flag;
         handle_error(MPI_Finalized(&flag));
@@ -32,4 +32,10 @@ namespace mpicxx
             handle_error(MPI_Finalize());
         }
     }
+
+    environment::~environment()
+    {
+        finalize();
+    }
+
 } // namespace mpicxx
