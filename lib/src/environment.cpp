@@ -23,7 +23,7 @@ namespace mpicxx
         }
     }
 
-    environment::finalize()
+    void environment::finalize()
     {
         int flag;
         handle_error(MPI_Finalized(&flag));
